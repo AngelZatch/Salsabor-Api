@@ -30,6 +30,16 @@ class UserController extends BaseController
 		$this->middleware('auth');
 	}*/
 
+	// GET all profiles
+	public function index()
+	{
+		$users = DB::table("users")
+			->get();
+
+		http_response_code(200);
+		return json_encode($users);
+	}
+
 	// GET a user profile
 	public function show($id)
 	{
