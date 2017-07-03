@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: AngelZatch
+ * Date: 26/02/2017
+ * Time: 16:35
+ */
 
 namespace App\Http\Controllers;
 
@@ -12,9 +18,9 @@ use App\User;
 
 class UserController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
+	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
@@ -24,9 +30,30 @@ class UserController extends BaseController
 		$this->middleware('auth');
 	}*/
 
-    // GET a user profile
-    public function show($id)
-    {
+	// GET a user profile
+	public function show($id)
+	{
+        $user = DB::table("users")
+			->where('user_id', $id)
+			->get();
 
+		http_response_code(200);
+        return json_encode($user);
     }
+
+	public function create()
+	{
+
+	}
+
+	public function destroy()
+	{
+
+	}
+
+	public function update()
+	{
+
+	}
+
 }
