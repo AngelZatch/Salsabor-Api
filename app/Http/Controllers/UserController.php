@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AngelZatch
- * Date: 26/02/2017
- * Time: 16:35
- */
 
 namespace App\Http\Controllers;
 
@@ -62,6 +56,16 @@ class UserController extends BaseController
 	}
 
 	public function update()
+	{
+
+	}
+
+	public function products($id)
+	{
+
+	}
+
+	public function transactions($id)
 	{
 
 	}

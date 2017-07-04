@@ -19,4 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function(){
     Route::resource('users', 'UserController');
+    Route::get('users/{id}/products', 'UserController@products');
+    Route::get('users/{id}/transactions', 'UserController@transactions');
+
+    Route::resource('products', 'ProductController');
+    Route::post('products/sales', 'ProductController@sales');
 });
