@@ -24,6 +24,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function(){
 
     Route::resource('products', 'ProductController');
     Route::post('products/sales', 'ProductController@sales');
+    Route::post('products/payments', 'ProductController@payments');
 
     Route::post('planning/frequentation', 'PlanningController@frequentation');
 });

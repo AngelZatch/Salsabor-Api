@@ -84,4 +84,16 @@ class ProductController extends BaseController
 		http_response_code(200);
 		return json_encode($sales);
     }
+
+    public function payments()
+    {
+        $params = json_decode(file_get_contents("php://input"), true);
+
+        $payments = DB::table("produits_echeances")
+            ->whereBetween("date_echeance", [$params['start'], $params['end']])
+            ->get();
+
+            http_response_code(200);
+            return json_encode($payments);
+    }
 }
